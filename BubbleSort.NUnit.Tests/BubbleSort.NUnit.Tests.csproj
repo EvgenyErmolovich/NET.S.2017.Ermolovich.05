@@ -32,6 +32,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BubbleSort.Tests.cs" />
+    <Compile Include="MaxElementDecrease.cs" />
+    <Compile Include="MaxElementIncrease.cs" />
+    <Compile Include="MinElementIncrease.cs" />
+    <Compile Include="MinElementDecrease.cs" />
+    <Compile Include="SumIncrease.cs" />
+    <Compile Include="SumDecrease.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
