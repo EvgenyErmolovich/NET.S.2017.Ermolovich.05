@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace LogicBubbleSort
 {
 	public static class BubbleSort
@@ -8,14 +9,18 @@ namespace LogicBubbleSort
 		/// </summary>
 		/// <returns>The sort.</returns>
 		/// <param name="arr">Arr.</param>
-		public static void Sort(this int[][] arr, IComparer compare)
+		public static void Sort(int[][] arr, IComparer<int[]> comparer)
 		{
-			ValidInput(arr);
-			for (int k = arr.Length - 1; k > 0; k--)
-				for (int i = 0; i < k; i++)
-					if (compare.Compare(arr[i],arr[i+1]) > 0) Swap(ref arr[i], ref arr[i + 1]);
+			BSort(arr, comparer.Compare);
 		}
-
+		private static void BSort(int[][] arr, Comparison<int[]> comparision)
+		{
+            ValidInput(arr);
+			for (int i = 0; i < arr.Length; i++)
+				for (int j = 0; j < arr.Length - 1; j++)
+					if (comparision(arr[j], arr[j + 1]) > 0)
+						Swap(ref arr[j], ref arr[j + 1]); 
+		}
 		/// <summary>
 		/// Swap the specified a and b.
 		/// </summary>
